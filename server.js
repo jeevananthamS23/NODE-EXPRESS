@@ -1,15 +1,12 @@
 const express = require("express");
 const app = express();
-const port = 5000;
+const route=require('./routes/index');
 app.use(express.json());
 
-app.post("/first", (req, res) => {
-    console.log("message from the first user", req.body.name);
-    res.send("success");
-});
 
+app.use('/api',route);
 
-app.listen(port, (error) => {
+app.listen(5000, (error) => {
     if (error) {
         console.log("error occur", error);
     } else {
